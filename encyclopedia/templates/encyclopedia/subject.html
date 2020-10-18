@@ -7,10 +7,10 @@ Encyclopedia - {{ title }}
 {% block body %}
 
   {% if success %}
-    {{ entry | safe }}
+    {{ body | safe }}
   {% else %}
     <h1>{{ title }}</h1>
-    <p>{{ entry }}</p>
+    <p>{{ body }}</p>
   {% endif%}
 
 {% endblock %}
