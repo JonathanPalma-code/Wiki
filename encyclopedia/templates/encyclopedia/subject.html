@@ -1,12 +1,16 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-{{ title }}
+Encyclopedia - {{ title }}
 {% endblock %}
 
 {% block body %}
-  <h1>{{ title }}</h1>
 
-  <p>{{ entry }}</p>
+  {% if success %}
+    {{ entry | safe }}
+  {% else %}
+    <h1>{{ title }}</h1>
+    <p>{{ entry }}</p>
+  {% endif%}
 
 {% endblock %}
