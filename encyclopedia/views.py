@@ -6,31 +6,36 @@ from . import util
 
 import markdown2
 
+entries = util.list_entries()
 body_entry_error = "The requested page was not found."
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
-        "entries": util.list_entries()
+        "entries": entries
     })
 
 def search(request):
     query = request.GET.get('q')
-    entries = util.list_entries()
-    if query in entries:
-        content = markdown2.markdown(util.get_entry(query))
-        return render(request, "encyclopedia/subject.html", {
-            "title": query, 
-            "body": content,
-            "success": True
+    for entry in entries:
+        if query.lower() == entry.lower():
+            content = markdown2.markdown(util.get_entry(query))
+            return render(request, "encyclopedia/subject.html", {
+                "title": query, 
+                "body": content,
+                "success": True
         })
-    else:
         matched_entry = []
-        for entry in entries:
-            if query.lower() in entry.lower():
-                matched_entry.append(entry)
-        return render(request, "encyclopedia/search.html", {
-            "query": query, 
-            "match": matched_entry,
+        if query.lower() in entry.lower():
+            matched_entry.append(entry)
+            print(list(matched_entry))
+            return render(request, "encyclopedia/search.html", {
+                "query": query, 
+                "match": matched_entry,
+            })
+    return render(request, "encyclopedia/subject.html", {
+                "title": query, 
+                "body": body_entry_error,
+                "success": False
         })
 
 def subject(request, title):
