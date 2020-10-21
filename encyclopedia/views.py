@@ -27,7 +27,6 @@ def search(request):
         matched_entry = []
         if query.lower() in entry.lower():
             matched_entry.append(entry)
-            print(list(matched_entry))
             return render(request, "encyclopedia/search.html", {
                 "query": query, 
                 "match": matched_entry,
@@ -47,10 +46,9 @@ def subject(request, title):
             "success": True
         })
     else:
-        title_error = "Page Not Found"
         body_entry_error = "The requested page was not found."
         return render(request, "encyclopedia/subject.html", {
-            "title": title_error, 
+            "title": title, 
             "body": body_entry_error,
             "success": False
         })
