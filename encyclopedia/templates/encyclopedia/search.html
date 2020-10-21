@@ -10,9 +10,13 @@ Encyclopedia - Search Results
   <hr>
 
   <ul>
-    {% for entry in match %}
-    <li><a href="{% url 'encyclopedia:subject' title=entry %}">{{ entry }}</a></li>
-    {% endfor %}
+    {% if not match %}
+      <p>{{ error }}</p>
+    {% else %}
+      {% for entry in match %}
+      <li><a href="{% url 'encyclopedia:subject' title=entry %}">{{ entry }}</a></li>
+      {% endfor %}
+    {% endif %}
   </ul>
 
 {% endblock %}

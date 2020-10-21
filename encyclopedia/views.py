@@ -15,27 +15,24 @@ def index(request):
     })
 
 def search(request):
-    query = request.GET.get('q')
+    query = request.GET.get('q').lower()
+    matched_entry = []
     for entry in entries:
-        if query.lower() == entry.lower():
+        entry = entry.lower()
+        if query == entry:
             content = markdown2.markdown(util.get_entry(query))
             return render(request, "encyclopedia/subject.html", {
                 "title": query, 
                 "body": content,
                 "success": True
         })
-        matched_entry = []
-        if query.lower() in entry.lower():
+        if query in entry:
             matched_entry.append(entry)
-            return render(request, "encyclopedia/search.html", {
-                "query": query, 
-                "match": matched_entry,
-            })
-    return render(request, "encyclopedia/subject.html", {
-                "title": query, 
-                "body": body_entry_error,
-                "success": False
-        })
+    return render(request, "encyclopedia/search.html", {
+        "query": query, 
+        "match": matched_entry,
+        "error": body_entry_error
+    })
 
 def subject(request, title):
     if util.get_entry(title):
