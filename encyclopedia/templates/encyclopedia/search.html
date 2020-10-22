@@ -10,7 +10,7 @@ Encyclopedia - Search Results
   <hr>
 
   <ul>
-    {% if not match %}
+    {% if not match and not success %}
       <p>{{ error }}</p>
     {% else %}
       {% for entry in match %}

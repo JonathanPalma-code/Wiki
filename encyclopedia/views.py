@@ -31,9 +31,9 @@ def subject(request, title):
         })
     else:
         body_entry_error = "The requested page was not found."
-        return render(request, "encyclopedia/subject.html", {
-            "title": title, 
-            "body": body_entry_error,
+        return render(request, "encyclopedia/search.html", {
+            "query": title, 
+            "error": body_entry_error,
             "success": False
         })
 
