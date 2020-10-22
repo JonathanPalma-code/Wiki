@@ -9,8 +9,14 @@ Encyclopedia - {{ title }}
   {% if success %}
     {{ body | safe }}
   {% else %}
-    <h1>'{{ title }}' not found</h1>
+    <h1>Error: '{{ title }}'</h1>
     <p>{{ body }}</p>
   {% endif%}
+
+  {% if go_back %}
+    <form method="GET" action="{% url 'encyclopedia:add' %}">
+      <input type='submit' value='Go back' >
+    </form>
+  {% endif %}
 
 {% endblock %}
