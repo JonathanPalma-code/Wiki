@@ -10,7 +10,7 @@ Add an Entry
 
   <form action="{% url 'encyclopedia:add' %}" method="POST">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <br>
     <input type='submit'>
   </form>

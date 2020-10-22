@@ -7,6 +7,8 @@ from . import util
 
 from markdown2 import markdown
 
+import random
+
 entries = util.list_entries()
 body_entry_error = "The requested page was not found."
 convert_HTML = markdown
@@ -106,4 +108,14 @@ def edit(request, title):
         return render(request, 'encyclopedia/edit.html', {
         'title': title,
         'form': EditEntryForm(initial={'content':body})
+    })
+
+def random_entry(request):
+    entry_chosen = random.choice(list(entries))
+    body = util.get_entry(entry_chosen)
+    body_converted = convert_HTML(body)
+    return render(request, 'encyclopedia/subject.html', {
+        'title': entry_chosen,
+        'body': body_converted,
+        'success': True
     })
