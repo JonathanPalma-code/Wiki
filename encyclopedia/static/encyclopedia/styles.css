@@ -1,38 +1,95 @@
 body {
-    margin: 0;
-    background-color: white;
+  background-color: aliceblue;
+  width: 80vw;
+}
+body .sidebar {
+  background-color: steelblue;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+body .sidebar h2 {
+  padding: 10px 0 20px 0;
+  font-style: italic;
+  color: aliceblue;
+}
+body .sidebar .search {
+  margin-bottom: 20px;
+  text-indent: 2px;
+}
+body .sidebar div {
+  padding-bottom: 1%;
+}
+body .sidebar div a {
+  text-decoration: none;
+  color: aliceblue;
+  position: relative;
+  transition: 0.5s;
+}
+body .sidebar div a:hover {
+  font-size: large;
+  transition: 0.5s;
+}
+body .main {
+  padding: 2%;
+}
+body .main h1 {
+  font-weight: bold;
+  margin-top: 0px;
+  padding-top: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+body .main ul {
+  padding: 2% 0 0 1%;
+  list-style-type: none;
+}
+body .main ul li a {
+  text-decoration: none;
+  color: steelblue;
+  position: relative;
+}
+body .main ul li a:hover::before {
+  content: "> ";
+  position: absolute;
+  left: -15px;
 }
 
 code {
-    white-space: pre;
-}
-
-h1 {
-    margin-top: 0px;
-    padding-top: 20px;
+  white-space: pre;
 }
 
 textarea {
-    height: 90vh;
-    width: 80%;
+  width: 100%;
+  transition: 1s;
+}
+textarea:hover {
+  box-shadow: 0 2px 5px 5px rgba(111, 104, 104, 0.1), 0 2px 5px 5px rgba(100, 100, 132, 0.1);
+  transition: 1s;
 }
 
-.main {
-    padding: 10px;
+input {
+  border-radius: 25px;
+  font-size: 15px;
+  line-height: 15px;
+  outline: none;
+  width: 100%;
+  padding: 8px;
+}
+input[type=text] {
+  transition: 1s;
+  border-radius: 25px;
+  width: 100%;
+}
+input[type=text]:hover {
+  box-shadow: 0 2px 5px 5px rgba(111, 104, 104, 0.1), 0 2px 5px 5px rgba(100, 100, 132, 0.1);
+  transition: 1s;
+}
+input[type=submit] {
+  background-color: steelblue;
+  font-family: bold;
+  width: 25%;
+  color: aliceblue;
+  font-size: large;
 }
 
-.search {
-    width: 100%;
-    font-size: 15px;
-    line-height: 15px;
-}
-
-.sidebar {
-    background-color: #f0f0f0;
-    height: 100vh;
-    padding: 20px;
-}
-
-.sidebar h2 {
-    margin-top: 5px;
-}
+/*# sourceMappingURL=styles.css.map */

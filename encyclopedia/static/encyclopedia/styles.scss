@@ -1,0 +1,125 @@
+$background-colour: aliceblue;
+$sidebar-color: steelblue;
+$radious: 25px;
+$title-weight: bold;
+$wiki: italic;
+$shadow-black:
+0 2px 5px 5px rgba(111, 104, 104, 0.1),
+0 2px 5px 5px rgba(100, 100, 132, 0.1);
+
+$shadow-white: 3px 3px 5px 6px aliceblue;
+
+
+body {
+  background-color: $background-colour;
+  width: 80vw;
+
+  .sidebar {
+    background-color: $sidebar-color;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+    
+    h2 {
+      padding: 10px 0 20px 0;
+      font-style: $wiki;
+      color: $background-colour;
+    }
+    
+    .search {
+      margin-bottom: 20px;
+      text-indent: 2px;
+    }
+  
+    div {
+      padding-bottom: 1%;
+  
+      a {
+        text-decoration: none;
+        color: $background-colour;
+        position: relative;
+        transition: 0.5s;
+  
+        &:hover {
+          font-size: large;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+
+  .main {
+    padding: 2%;
+    
+    h1 {
+      font-weight: $title-weight;
+      margin-top: 0px;
+      padding-top: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    ul {
+      padding: 2% 0 0 1%;
+      list-style-type: none;
+
+      li {
+        
+        a {
+          text-decoration: none;
+          color: $sidebar-color;
+          position: relative;
+  
+          &:hover::before {
+            content: '> ';
+            position: absolute;
+            left: -15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+code {
+  white-space: pre;
+}
+
+
+textarea {
+  width: 100%;
+  transition: 1s;
+  
+  &:hover {
+    box-shadow: $shadow-black;
+    transition: 1s;
+  }
+}
+
+
+input {
+  border-radius: $radious;
+  font-size: 15px;
+  line-height: 15px;
+  outline: none;
+  width: 100%;
+  padding: 8px;
+  
+  &[type=text] {
+    transition: 1s;
+    border-radius: $radious;
+    width: 100%;
+    
+    &:hover {
+      box-shadow: $shadow-black;
+      transition: 1s;
+    }
+  }
+  
+  &[type=submit] {
+    background-color: $sidebar-color;
+    font-family: $title-weight;
+    width: 25%;
+    color: $background-colour;
+    font-size: large;
+  }
+}   

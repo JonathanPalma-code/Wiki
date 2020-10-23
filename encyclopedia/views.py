@@ -14,11 +14,11 @@ body_entry_error = "The requested page was not found."
 convert_HTML = markdown
 
 class NewEntryForm(forms.Form):
-    title = forms.CharField(label="File Name", max_length=20, widget=forms.TextInput(attrs={'class' : 'form-control col-md-6 col-lg-6'}))
-    content = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control col-md-6 col-lg-6', 'rows' : 10}))
+    title = forms.CharField(label="File Name", max_length=20, widget=forms.TextInput(attrs={'class' : 'form-control col-md-8 col-lg-8'}))
+    content = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control col-md-8 col-lg-8', 'rows' : 10}))
 
 class EditEntryForm(forms.Form):
-    content = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control col-md-6 col-lg-6', 'rows' : 10}))
+    content = forms.CharField(widget=forms.Textarea(attrs={'class' : 'form-control col-md-8 col-lg-8', 'rows' : 10}))
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
